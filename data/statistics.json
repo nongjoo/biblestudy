@@ -1,0 +1,25 @@
+{
+  "verses": {
+    "kor": 30991,
+    "web": 31103,
+    "hebrew": 23213,
+    "greek": 7914
+  },
+  "hebrewWords": 305507,
+  "greekWords": 137361,
+  "addedTranslations": {
+    "asv": {
+      "books": 66,
+      "chapters": 1189,
+      "verses": 31102,
+      "sha256": "78936cfa0d2909d7c6979ba270e676855d94d44586ba567ee51b30cf30fd5130"
+    },
+    "bsb": {
+      "books": 66,
+      "chapters": 1189,
+      "verses": 31086,
+      "sha256": "51d4d53b37d3ba2147b8eeb0697eb36d339d08acdda97baec8c4ed606faf2361"
+    }
+  },
+  "missingNote": "판본별 결절/병합 차이로 절 수 상이, web 31103 vs kor 30991 (asv 31102, bsb 31086). GEN kor 1520 vs web/asv/bsb 1533 (GEN30 kor31 vs web43, GEN33 kor19 vs web20), PSA kor 2429 vs web/asv/bsb 2461 (PSA8/16/36/38/72/75/80/92/104/118 등, 예 PSA118 kor9 vs web29), 1PE kor 4장 vs 타판본 5장(5장 14절 누락). kor 병합표기 [ (Book N) ...]는 후속 절 한글 본문이 한 절에 합쳐진 것으로, 없는 절은 다른 판본으로 채우지 않음. 판본별 절 수(verses) 원본 유지."
+}

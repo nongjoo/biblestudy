@@ -1,0 +1,36 @@
+/**
+ *                      Dictionary of Greek Words
+ *                              taken from
+ *                    Strong's Exhaustive Concordance
+ *                                   by
+ *                      James Strong, S.T.D., LL.D.
+ *                                  1890
+ * 
+ * JSON version
+ * ============
+ * Copyright 2009, Open Scriptures. CC-BY-SA. Derived from XML.
+ * $Id$
+ *
+ * XML e-text version
+ * ==================
+ * 
+ * The XML version of this work was prepared in 2006 by Ulrik Petersen
+ * (http://ulrikp.org) from the ASCII e-text version presented below.
+ * The XML version contains "real" UTF-8 Greek where the original ASCII
+ * e-text version had transliteration.  The XML has a stand-alone DTD
+ * which should be easy to follow.
+ * 
+ * Ulrik Petersen welcomes bugfixes to the text.  Please send them to the
+ * address provided on the website:
+ * 
+ * http://ulrikp.org
+ * 
+ * Ulrik Petersen
+ */
+
+
+Source: https://github.com/openscriptures/strongs
+Downloaded: 2026-09-29
+SHA256: 7624ee738ae47e80f1a352223e28a26d011c9cd4898822cee52f47a010c04efd
+Changes: JSON field extraction, lookup indexes, selected newly written Korean glosses by 말씀연구실. Adapted dictionary data and Korean glosses distributed under CC BY-SA 4.0 (upstream header: CC-BY-SA, version unspecified). https://creativecommons.org/licenses/by-sa/4.0/
+Not applied to user notes or independent application code.

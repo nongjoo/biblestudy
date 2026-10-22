@@ -1,0 +1,22 @@
+ 'use strict';
+(()=>{
+ let request=0;
+ const style=document.createElement('style');style.textContent='.lemma-inline{margin-top:16px;border-top:1px solid #c6d2cd;padding-top:12px}.lemma-inline-list{max-height:55vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}.lemma-inline-list button{display:block;width:100%;text-align:left;background:#fff;border:1px solid #c6d2cd;border-radius:8px;padding:12px;margin:8px 0;color:#203c39}.lemma-inline-list strong,.lemma-inline-list span{display:block;white-space:pre-wrap;overflow-wrap:anywhere}.lemma-inline-list .original-result{font-size:18px;margin:8px 0}.lemma-inline-list .lemma-selected-word{color:#b42318;font-weight:800;background:#fff0ed;border-radius:3px;padding:0 2px}.lemma-inline-list .result-korean{font-size:14px;line-height:1.8}';document.head.append(style);
+ lemmaSearch=async function(language,lemma,refs){
+  const stamp=++request,actions=document.getElementById('lemmaActions');if(!actions)return;
+  document.getElementById('lemmaInlineResults')?.remove();
+  const host=document.createElement('section');host.id='lemmaInlineResults';host.className='lemma-inline';
+  const status=document.createElement('p');status.setAttribute('role','status');status.textContent='사용 구절을 불러오고 있습니다…';
+  const list=document.createElement('div');list.className='lemma-inline-list';list.tabIndex=0;list.setAttribute('aria-label','원어 사용 구절 전체 목록');
+  const more=document.createElement('button');more.textContent='다음 구절 더 보기';more.hidden=true;host.append(status,list,more);actions.after(host);
+  const current=()=>stamp===request&&host.isConnected;
+  try{
+   const corpus=await data(language+'-search');if(!current())return;
+   const keys=new Set(refs.map(r=>r.join('.'))),rows=corpus.filter(r=>keys.has(r.slice(0,3).join('.')));let shown=0;
+   async function korean(line,addresses){try{const texts=await Promise.all(addresses.map(async id=>{const [bb,cc,vv]=id.split('.'),book=await data('kor/'+bb);return humanRef(id)+' · '+(book[cc]?.[vv]||'이 절의 한국어 공개본은 수록되어 있지 않습니다.')}));if(current()&&line.isConnected)line.textContent=texts.join('\n')}catch{if(current())line.textContent='한국어 본문을 불러오지 못했습니다. 구절을 눌러 본문에서 확인하세요.'}}
+   async function highlight(line,row){try{const book=await data(language+'/'+row[0]),words=book[row[1]]?.[row[2]];if(!current()||!line.isConnected||!Array.isArray(words))return;const parts=words.map((word,i)=>{const span=document.createElement('span');span.style.display='inline';span.textContent=String(word[0]||'').replaceAll('/','');if(Array.isArray(word[3])&&word[3].includes(lemma)){span.className='lemma-selected-word';span.title='선택한 원어 · '+lemma}return span});line.replaceChildren();parts.forEach((part,i)=>{if(i)line.append(document.createTextNode(' '));line.append(part)})}catch{if(current()&&line.isConnected)line.title='원문 강조 정보를 불러오지 못했습니다. 구절을 다시 열어 주세요.'}}
+   function append(){if(!current())return;const end=Math.min(shown+40,rows.length),fragment=document.createDocumentFragment();for(let i=shown;i<end;i++){const r=rows[i],native=r.slice(0,3).join('.'),addresses=language==='hebrew'?(mapping.toStandard?.[native]||[native]):[native];const button=document.createElement('button'),title=document.createElement('strong'),original=document.createElement('span'),translation=document.createElement('span');title.textContent=humanRef(native)+(language==='hebrew'?' · OSHB 원문 번호':'');original.className='original-result';original.dir=language==='hebrew'?'rtl':'ltr';original.textContent=r[3];translation.className='result-korean';translation.textContent='한국어 말씀을 불러오는 중…';button.append(title,original,translation);button.onclick=async()=>{try{const [bb,cc,vv]=addresses[0].split('.');compare='original';document.getElementById('compare').value=compare;await navigate(bb,+cc,+vv)}catch{status.textContent='본문을 열지 못했습니다. 다시 시도해 주세요.'}};fragment.append(button);queueMicrotask(()=>{korean(translation,addresses);highlight(original,r)})}list.append(fragment);shown=end;status.textContent=`${lemma} · 전체 ${rows.length.toLocaleString()}구절 중 ${shown.toLocaleString()}구절 표시${rows.length?' · 아래로 스크롤하세요.':' · 수록된 사용 구절이 없습니다.'}`;more.hidden=shown>=rows.length;more.textContent=`다음 구절 더 보기 · ${shown.toLocaleString()} / ${rows.length.toLocaleString()}`}
+   more.onclick=append;list.onscroll=()=>{if(list.scrollTop+list.clientHeight>=list.scrollHeight-180)append()};append();
+  }catch(e){if(current()){status.textContent='사용 구절을 불러오지 못했습니다. 다시 불러오기를 눌러 주세요.';more.hidden=false;more.textContent='다시 불러오기';more.onclick=()=>lemmaSearch(language,lemma,refs)}}
+ };
+})();

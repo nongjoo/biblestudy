@@ -1,0 +1,8 @@
+Berean Standard Bible
+Text: Public Domain
+Rights: https://berean.bible/terms.htm
+Source: https://ebible.org/Scriptures/engbsb_vpl.zip
+Retrieved: 2026-09-29
+SHA256: 51d4d53b37d3ba2147b8eeb0697eb36d339d08acdda97baec8c4ed606faf2361
+Processing: VPL text converted to per-book JSON and search rows, 66 canonical books. Verse text unchanged. No replacement for absent verses. Footnotes and introductions are not included in the VPL text.
+The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com, and the Berean Bible Translation Committee. Text dedicated to the public domain April 30, 2023.

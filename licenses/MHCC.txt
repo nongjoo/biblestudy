@@ -1,0 +1,5 @@
+Matthew Henry’s Concise Commentary on the Bible
+Source: https://ccel.org/ccel/henry/mhcc.xml
+Source metadata: <DC.Rights>Public Domain</DC.Rights>
+CCEL electronic edition v1.0, 2001-06-20. Source text only; site staff description is not reproduced. Paragraph text extracted and grouped by commentary passage; XML formatting removed.
+SHA256: 4a5509ba5064b54572397ae1a796561ff6ce4a1e18f366af0141a09c5d06fcd6

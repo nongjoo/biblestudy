@@ -1,0 +1,47 @@
+/* v64 · 원고 확정 화면과 인쇄용 원고 미리보기 */
+#finalManuscriptFlow.fm{border-top:3px solid var(--sd-brand)}
+.fm .fm-eyebrow{margin:0 0 4px;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--sd-gold)}
+.fm h2{margin:0 0 12px}
+.fm-steps{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 14px;padding:0}
+.fm-steps li{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border:1px solid var(--sd-line);border-radius:999px;background:var(--sd-sunken);font-size:13px;font-weight:600;color:var(--sd-ink-2)}
+.fm-steps b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--sd-brand);color:#fff;font-size:12px}
+.fm-actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.fm-actions button{margin:0!important}
+#finalManuscriptFlow label{display:block;margin:0;font-weight:600;font-size:14px;color:var(--sd-ink-2)}
+#finalManuscriptFlow .fm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:14px}
+#finalManuscriptFlow .fm-wide{grid-column:1/-1}
+#finalManuscriptFlow input:not([type=checkbox]),#finalManuscriptFlow textarea{display:block;width:100%;box-sizing:border-box;padding:10px 12px;margin-top:6px}
+#finalManuscriptFlow .fm-confirm{display:flex;align-items:center;gap:8px;margin:14px 0 4px;padding:12px 14px;border-radius:var(--sd-r);background:var(--sd-tint);font-weight:700;color:var(--sd-ink)}
+#finalManuscriptFlow .fm-confirm input{width:18px;height:18px;accent-color:var(--sd-brand)}
+.fm-review{margin:10px 0;padding:10px 14px;border-radius:var(--sd-r);background:#fbf3e4;color:#6b4a12;font-size:14px;line-height:1.6}
+.fm-review.ok{background:var(--sd-brand-soft);color:var(--sd-ok)}
+.fm-auto{margin:12px 0 0;padding:10px 14px;border-left:3px solid var(--sd-gold);background:#fffaf0;border-radius:0 var(--sd-r-sm) var(--sd-r-sm) 0;font-size:14px;line-height:1.6;color:var(--sd-ink-2)}
+.fm-auto:empty{display:none}
+.fm-note{font-size:13.5px;color:var(--sd-muted);line-height:1.6}
+.fm-status{font-weight:700;color:var(--sd-brand)}
+.fm-status:empty{display:none}
+#fmFull{white-space:pre-wrap;max-height:320px;overflow:auto;padding:12px;background:var(--sd-sunken);border-radius:var(--sd-r-sm);font-size:13.5px;line-height:1.7}
+#fmProduction{margin:16px 0;border-left:4px solid var(--sd-gold)}
+#fmProduction button{margin:4px 10px 4px 0}
+#dwRevisedManuscript{min-height:220px}
+@media (max-width:720px){#finalManuscriptFlow .fm-grid{grid-template-columns:1fr}}
+
+/* 인쇄용 원고 미리보기 */
+.sp-dialog{width:min(1180px,96vw);height:94vh;max-height:none;padding:0;border:0;border-radius:var(--sd-r-lg);background:var(--sd-bg);box-shadow:0 30px 80px -20px rgba(0,0,0,.45);overflow:hidden}
+.sp-dialog[open]{display:grid;grid-template-columns:330px 1fr}
+.sp-dialog::backdrop{background:rgba(23,32,29,.55)}
+.sp-bar{display:flex;flex-direction:column;gap:14px;padding:22px 20px;border-right:1px solid var(--sd-line);background:var(--sd-surface);overflow:auto}
+.sp-eyebrow{margin:0;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--sd-gold)}
+.sp-head h2{margin:4px 0 6px;font-size:22px}
+.sp-source{margin:0;font-size:13px;line-height:1.55;color:var(--sd-muted)}
+.sp-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sp-fields label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:700;color:var(--sd-ink-2)}
+.sp-fields input:not([type=checkbox]),.sp-fields select{width:100%;box-sizing:border-box;padding:8px 10px;font-size:13.5px}
+.sp-fields .sp-check{flex-direction:row;align-items:center;gap:7px}
+.sp-check input{width:17px;height:17px;accent-color:var(--sd-brand)}
+.sp-actions{display:flex;flex-direction:column;gap:8px}
+.sp-actions button{width:100%}
+.sp-status{margin:0;font-size:13px;line-height:1.55;color:var(--sd-brand);font-weight:600}
+.sp-status:empty{display:none}
+#spFrame{width:100%;height:100%;border:0;background:#e8e4da}
+@media (max-width:860px){.sp-dialog[open]{grid-template-columns:1fr;grid-template-rows:auto 1fr}.sp-bar{max-height:44vh;border-right:0;border-bottom:1px solid var(--sd-line)}}

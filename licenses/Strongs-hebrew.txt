@@ -1,0 +1,31 @@
+/**
+ * A Concise Dictionary of the Words in the Hebrew Bible
+ *    with their Renderings in the King James Version
+ * by James Strong, LL.D., S.T.D.
+ * 1894
+ *
+ * JSON version
+ * ============
+ * Copyright 2010, Open Scriptures. CC-BY-SA. Derived from XML.
+ * $Id$
+ *
+ * XML e-text version
+ * ==================
+ * From a source by David Instone-Brewer (www.2LetterLookup.com):
+ * "The data came from several PD sources which were full of errors. 
+ * I cleaned them by comparing them to each other and (where 
+ * necessary) looking at the original."
+ *
+ * Editing, corrections and Unicode transliterations
+ * by David Troidl.
+ *
+ * Comments or corrections:
+ * open-scriptures@googlegroups.com
+ */
+
+
+Source: https://github.com/openscriptures/strongs
+Downloaded: 2026-09-29
+SHA256: 5ce6aeed551c709f49bcfa341cadf2f34bc7599b85d9de9e6ac2ecbf60fc3739
+Changes: JSON field extraction, lookup indexes, selected newly written Korean glosses by 말씀연구실. Adapted dictionary data and Korean glosses distributed under CC BY-SA 4.0 (upstream header: CC-BY-SA, version unspecified). https://creativecommons.org/licenses/by-sa/4.0/
+Not applied to user notes or independent application code.
